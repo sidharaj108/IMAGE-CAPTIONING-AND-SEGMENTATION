@@ -1,0 +1,5 @@
+__pycache__/
+   *.pyc
+   uploaded_image.jpg
+   temp_frame.jpg
+   *.ipynb
