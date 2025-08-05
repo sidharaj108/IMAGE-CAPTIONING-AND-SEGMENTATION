@@ -1,4 +1,4 @@
-import streamlit as st
+   import streamlit as st
    import cv2
    import numpy as np
    from captioning import extract_features, generate_caption
@@ -43,3 +43,4 @@ import streamlit as st
            result_image, result_caption = display_results(frame, masks, caption)
            stframe.image(result_image, caption=result_caption, use_column_width=True)
        cap.release()
+
