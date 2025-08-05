@@ -1,9 +1,9 @@
-tensorflow==2.10.0 
-opencv-python-headless 
-numpy 
-pillow 
+tensorflow==2.10.0
+opencv-python-headless
+numpy
+pillow
 torch
-torchvision 
-detectron2 @ https://dl.fbaipublicfiles.com/detectron2/wheels/cu113/torch1.10/detectron2-0.6-cp37-cp37m-linux_x86_64.whl 
-pycocotools 
+torchvision
+detectron2 @ https://dl.fbaipublicfiles.com/detectron2/wheels/cu113/torch1.10/detectron2-0.6-cp37-cp37m-linux_x86_64.whl
+pycocotools
 streamlit
