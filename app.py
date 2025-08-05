@@ -33,15 +33,16 @@ cap = cv2.VideoCapture("uploaded_video.mp4")
 stframe = st.empty()
 while cap.isOpened():
    ret, frame = cap.read()
-   if not ret:
+if not ret:
    break
-   cv2.imwrite("temp_frame.jpg", frame)
-   features = extract_features("temp_frame.jpg")
-   caption = generate_caption(features)
-   masks = segment_image(frame)
-   result_image, result_caption = display_results(frame, masks, caption)
-   stframe.image(result_image, caption=result_caption, use_column_width=True)
-   cap.release()
+cv2.imwrite("temp_frame.jpg", frame)
+features = extract_features("temp_frame.jpg")
+caption = generate_caption(features)
+masks = segment_image(frame)
+result_image, result_caption = display_results(frame, masks, caption)
+stframe.image(result_image, caption=result_caption, use_column_width=True)
+cap.release()
+
 
 
 
