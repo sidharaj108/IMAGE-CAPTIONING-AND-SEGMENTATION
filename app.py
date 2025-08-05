@@ -1,5 +1,9 @@
 import streamlit as st
-import cv2
+try:
+    import cv2
+except ImportError as e:
+    st.error(f"Failed to import cv2: {e}")
+    st.stop()
 import numpy as np
 from captioning import extract_features, generate_caption
 from segmentation import segment_image
@@ -14,6 +18,9 @@ if uploaded_image is not None:
     with open("uploaded_image.jpg", "wb") as f:
         f.write(uploaded_image.getbuffer())
     image = load_image("uploaded_image.jpg")
+    if image is None:
+        st.error("Failed to load image. Ensure the file is a valid image.")
+        st.stop()
     features = extract_features("uploaded_image.jpg")
     caption = generate_caption(features)
     masks = segment_image(image)
@@ -31,15 +38,21 @@ if uploaded_video is not None:
     with open("uploaded_video.mp4", "wb") as f:
         f.write(uploaded_video.getbuffer())
     cap = cv2.VideoCapture("uploaded_video.mp4")
+    if not cap.isOpened():
+        st.error("Failed to load video. Ensure the file is a valid video.")
+        st.stop()
     stframe = st.empty()
+    frame_count = 0
     while cap.isOpened():
         ret, frame = cap.read()
         if not ret:
             break
-        cv2.imwrite("temp_frame.jpg", frame)
-        features = extract_features("temp_frame.jpg")
-        caption = generate_caption(features)
-        masks = segment_image(frame)
-        result_image, result_caption = display_results(frame, masks, caption)
-        stframe.image(result_image, caption=result_caption, use_column_width=True)
+        if frame_count % 5 == 0:  # Process every 5th frame
+            cv2.imwrite("temp_frame.jpg", frame)
+            features = extract_features("temp_frame.jpg")
+            caption = generate_caption(features)
+            masks = segment_image(frame)
+            result_image, result_caption = display_results(frame, masks, caption)
+            stframe.image(result_image, caption=result_caption, use_column_width=True)
+        frame_count += 1
     cap.release()
