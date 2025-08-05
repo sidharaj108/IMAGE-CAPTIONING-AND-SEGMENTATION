@@ -1,9 +1,9 @@
-   import streamlit as st
-   import cv2
-   import numpy as np
-   from captioning import extract_features, generate_caption
-   from segmentation import segment_image
-   from utils import load_image, display_results
+import streamlit as st
+import cv2
+import numpy as np
+from captioning import extract_features, generate_caption
+from segmentation import segment_image
+from utils import load_image, display_results
 
    st.title("Image Captioning and Segmentation App")
 
@@ -43,4 +43,5 @@
            result_image, result_caption = display_results(frame, masks, caption)
            stframe.image(result_image, caption=result_caption, use_column_width=True)
        cap.release()
+
 
