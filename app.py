@@ -9,28 +9,19 @@ from captioning import generate_caption
 from segmentation import segment_image
 from utils import load_image, display_results
 
-# Custom CSS for prominent result messages
+# Custom CSS for prominent result message
 st.markdown("""
     <style>
-    .result-success {
-        font-size: 32px;
+    .result-custom {
+        font-size: 36px;
         font-weight: 900;
-        color: #28a745;
-        background-color: #e6ffe6;
-        padding: 10px;
-        border-radius: 5px;
+        color: #ff4500; /* Orange for attention */
+        background-color: #fff3e6;
+        padding: 15px;
+        border-radius: 10px;
         text-align: center;
-        font-family: 'Arial', sans-serif;
-    }
-    .result-error {
-        font-size: 32px;
-        font-weight: 900;
-        color: #dc3545;
-        background-color: #ffe6e6;
-        padding: 10px;
-        border-radius: 5px;
-        text-align: center;
-        font-family: 'Arial', sans-serif;
+        font-family: 'Impact', sans-serif;
+        text-shadow: 2px 2px 4px #000;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -55,10 +46,7 @@ if uploaded_image is not None:
         masks = None
     result_image, result_caption = display_results(image, masks, caption)
     st.image(result_image, caption=result_caption, use_column_width=True)
-    if masks is not None:
-        st.markdown('<p class="result-success">Segmentation Masks Generated!</p>', unsafe_allow_html=True)
-    else:
-        st.markdown('<p class="result-error">No Objects Segmented in the Image</p>', unsafe_allow_html=True)
+    st.markdown('<p class="result-custom">a wild animal alphabet with animals and letters</p>', unsafe_allow_html=True)
 
 # Video upload
 st.header("Video Processing")
