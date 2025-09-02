@@ -9,23 +9,6 @@ from captioning import generate_caption
 from segmentation import segment_image
 from utils import load_image, display_results
 
-# Custom CSS for prominent result message
-st.markdown("""
-    <style>
-    .result-custom {
-        font-size: 36px;
-        font-weight: 900;
-        color: #ff4500; /* Orange for attention */
-        background-color: #fff3e6;
-        padding: 15px;
-        border-radius: 10px;
-        text-align: center;
-        font-family: 'Impact', sans-serif;
-        text-shadow: 2px 2px 4px #000;
-    }
-    </style>
-""", unsafe_allow_html=True)
-
 st.title("Image Captioning and Segmentation App")
 
 # Image upload
@@ -46,7 +29,10 @@ if uploaded_image is not None:
         masks = None
     result_image, result_caption = display_results(image, masks, caption)
     st.image(result_image, caption=result_caption, use_column_width=True)
-    st.markdown('<p class="result-custom">a wild animal alphabet with animals and letters</p>', unsafe_allow_html=True)
+    if masks is not None:
+        st.write("Segmentation masks generated")
+    else:
+        st.write("No objects segmented in the image")
 
 # Video upload
 st.header("Video Processing")
