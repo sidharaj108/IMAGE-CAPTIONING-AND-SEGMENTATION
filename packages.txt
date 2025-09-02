@@ -1,1 +1,2 @@
-libgl1-mesa-glx=20.0.8-0ubuntu1~18.04.1 libglib2.0-0 libglvnd0
+libgl1
+libglib2.0-0
