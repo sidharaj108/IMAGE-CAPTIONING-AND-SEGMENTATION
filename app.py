@@ -9,6 +9,24 @@ from captioning import generate_caption
 from segmentation import segment_image
 from utils import load_image, display_results
 
+# Custom CSS for styled result messages
+st.markdown("""
+    <style>
+    .result-success {
+        font-size: 24px;
+        font-weight: bold;
+        color: #28a745;
+        font-family: 'Arial', sans-serif;
+    }
+    .result-error {
+        font-size: 24px;
+        font-weight: bold;
+        color: #dc3545;
+        font-family: 'Arial', sans-serif;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 st.title("Image Captioning and Segmentation App")
 
 # Image upload
@@ -30,9 +48,9 @@ if uploaded_image is not None:
     result_image, result_caption = display_results(image, masks, caption)
     st.image(result_image, caption=result_caption, use_column_width=True)
     if masks is not None:
-        st.write("Segmentation masks generated")
+        st.markdown('<p class="result-success">Segmentation Masks Generated!</p>', unsafe_allow_html=True)
     else:
-        st.write("No objects segmented in the image")
+        st.markdown('<p class="result-error">No Objects Segmented in the Image</p>', unsafe_allow_html=True)
 
 # Video upload
 st.header("Video Processing")
