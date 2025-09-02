@@ -9,27 +9,19 @@ from captioning import generate_caption
 from segmentation import segment_image
 from utils import load_image, display_results
 
-# Custom CSS for prominent result messages
+# Custom CSS for styled result messages
 st.markdown("""
     <style>
     .result-success {
-        font-size: 32px;
-        font-weight: 900;
+        font-size: 24px;
+        font-weight: bold;
         color: #28a745;
-        background-color: #e6ffe6;
-        padding: 10px;
-        border-radius: 5px;
-        text-align: center;
         font-family: 'Arial', sans-serif;
     }
     .result-error {
-        font-size: 32px;
-        font-weight: 900;
+        font-size: 24px;
+        font-weight: bold;
         color: #dc3545;
-        background-color: #ffe6e6;
-        padding: 10px;
-        border-radius: 5px;
-        text-align: center;
         font-family: 'Arial', sans-serif;
     }
     </style>
