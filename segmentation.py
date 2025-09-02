@@ -1,18 +1,17 @@
 from ultralytics import YOLO
 import cv2
-import os
+import streamlit as st
 
-# Path to store the model
-model_path = "yolov8m-seg.pt"
-
-# Download model if not present
-if not os.path.exists(model_path):
-    from ultralytics.hub import download
-    download("yolov8m-seg.pt", model_path)
-
-# Load YOLOv8 model
-model = YOLO(model_path)
+try:
+    model = YOLO("yolov8m-seg.pt")  # Automatically downloads if not cached
+except Exception as e:
+    st.error(f"Failed to load YOLOv8 model: {str(e)}")
+    raise
 
 def segment_image(image):
-    results = model(image, verbose=False)
-    return results[0].masks.data.cpu().numpy() if results[0].masks is not None else None
+    try:
+        results = model(image, verbose=False)
+        return results[0].masks.data.cpu().numpy() if results[0].masks is not None else None
+    except Exception as e:
+        st.error(f"Segmentation failed: {str(e)}")
+        return None
