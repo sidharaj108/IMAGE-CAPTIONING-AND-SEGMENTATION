@@ -1,10 +1,8 @@
-tensorflow==2.15.0
-opencv-python-headless==4.8.1.78
-numpy==1.26.4
-pillow==10.4.0
-ultralytics==8.2.0
-torch==2.0.1
-torchvision==0.15.2
-transformers==4.31.0
-streamlit==1.38.0
-setuptools==70.3.0
+streamlit==1.38.0  # Latest stable Streamlit
+tensorflow==2.15.0  # For InceptionV3 captioning
+opencv-python-headless==4.10.0.84  # Image processing (headless for server)
+pillow==10.4.0  # Image handling
+numpy==1.26.4  # Arrays/math
+torch==2.0.1+cpu  # PyTorch CPU version (compatible with Detectron2)
+torchvision==0.15.2+cpu  # PyTorch vision (must match torch)
+git+https://github.com/facebookresearch/detectron2.git  # Detectron2 from source
