@@ -10,7 +10,7 @@ This project combines **Image And Video Captioning** and **Image Segmentation** 
 - **Deployment**: Hugging Face Cloud for proper utilization of Space.
 
 ## HERE IS MY APP :
-https://huggingface.co/spaces/Sidharaj-Manek07/IMAGE-CAPTIONING-AND-SEGMENTATION/tree/main
+https://huggingface.co/spaces/Sidharaj-Manek07/IMAGE-CAPTIONING-AND-SEGMENTATION/
 ## Setup and Deployment
 1. **Clone the Repository**:
    ```bash
