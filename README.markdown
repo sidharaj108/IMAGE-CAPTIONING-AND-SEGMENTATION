@@ -1,6 +1,6 @@
 # Image Captioning and Segmentation Project
 
-This project combines **Image And Video Captioning** and **Image Segmentation** using deep learning. It generates descriptive captions for images and segments objects within them, built with TensorFlow, Detectron2, and Streamlit.
+This project combines **Image And Video Captioning** and **Image Segmentation** using deep learning. It generates descriptive captions for images and videos and segments objects within them, built with TensorFlow, Detectron2, BLIP and Streamlit.
 
 ## Features
 - **Image Captioning**: Generates text descriptions for images using InceptionV3 (placeholder captioning).
