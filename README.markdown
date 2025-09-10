@@ -1,13 +1,16 @@
 # Image Captioning and Segmentation Project
 
-This project combines **Image Captioning** and **Image Segmentation** using deep learning. It generates descriptive captions for images and segments objects within them, built with TensorFlow, Detectron2, and Streamlit.
+This project combines **Image And Video Captioning** and **Image Segmentation** using deep learning. It generates descriptive captions for images and segments objects within them, built with TensorFlow, Detectron2, and Streamlit.
 
 ## Features
 - **Image Captioning**: Generates text descriptions for images using InceptionV3 (placeholder captioning).
 - **Image Segmentation**: Identifies and labels objects using Detectron2's Mask R-CNN.
+- **Video Captioning**: Generates text description for video using BLIP.
 - **Streamlit App**: User-friendly interface for uploading and processing images.
-- **Deployment**: Hosted on Streamlit Cloud.
+- **Deployment**: Hugging Face Cloud for proper utilization of Space.
 
+## HERE IS MY APP :
+https://huggingface.co/spaces/Sidharaj-Manek07/IMAGE-CAPTIONING-AND-SEGMENTATION/tree/main
 ## Setup and Deployment
 1. **Clone the Repository**:
    ```bash
@@ -17,10 +20,10 @@ This project combines **Image Captioning** and **Image Segmentation** using deep
    - Open [Google Colab](https://colab.research.google.com).
    - Run `install_dependencies.ipynb` and `download_sample.ipynb` to set up and test.
    - Test individual components (`captioning.py`, `segmentation.py`, `utils.py`).
-3. **Deploy to Streamlit Cloud**:
-   - Push the repository to GitHub.
-   - Go to [Streamlit Cloud](https://streamlit.io/cloud).
-   - Connect your GitHub repo and deploy `app.py`.
+3. **Deploy to Hugging Face**:
+   - Clone the repository from Github to Hugging Face.
+   - Go to [Hugging Face](https://huggingface.co/).
+   - Hugging face will automatically running the `app.py` in 10-15 minutes as building the model.
    - Ensure `requirements.txt` is correct.
 
 ## File Structure
